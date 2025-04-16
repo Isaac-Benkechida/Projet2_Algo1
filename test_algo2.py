@@ -2,7 +2,7 @@ import os
 from os import path
 
 from bytestream import bytes2bin
-from huffman import huffman_encode, huffman_decode, build_freqs, build_huffman_tree, build_encodings
+from huffman import huffman_encode, huffman_decode, build_freqs, build_huffman_tree, build_encodings,print_visual_tree
 
 
 
@@ -189,5 +189,6 @@ def test_huffman_decode_text4():
     plain = f.read()
     freqs = build_freqs(plain)
     tree = build_huffman_tree(freqs)
+    print_visual_tree(tree)
     compressed = huffman_encode(plain, tree)
     assert huffman_decode(compressed, tree) == plain, "Erreur de décodage"
